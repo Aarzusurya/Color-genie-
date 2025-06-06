@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Color Genie 🎨</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="assets/icon-192.png">
+</head>
+<body>
+  <div class="container">
+    <h1>🎨 Color Genie</h1>
+
+    <!-- Dark Mode Toggle -->
+    <label class="switch">
+      <input type="checkbox" id="darkModeToggle">
+      <span class="slider"></span>
+    </label>
+    <span class="mode-label">Dark Mode</span>
+
+    <button id="colorBtn">Change Color</button>
+    <p id="colorCode">Current Color: #f0f0f0</p>
+
+    <button id="copyBtn">Copy Color Code</button>
+    <button id="resetBtn">Reset</button>
+    <button id="favBtn">Add to Favorites</button>
+
+    <h2>Favorite Colors:</h2>
+    <div id="favorites"></div>
+  </div>
+
+  <!-- Sound -->
+  <audio id="clickSound" src="https://www.soundjay.com/buttons/sounds/button-16.mp3" preload="auto"></audio>
+
+  <script src="script.js"></script>
+  <script>
+    // Register service worker
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js')
+        .then(() => console.log('Service Worker Registered'));
+    }
+  </script>
+</body>
+</html>
